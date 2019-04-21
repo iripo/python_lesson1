@@ -15,7 +15,19 @@ fruits=["яблоко", "банан", "киви", "арбуз"]
 for i, value in enumerate(fruits, 1):
      print("{}. {:>11}".format(i, value))
 
+#или
 
+n=0
+
+fruits=["яблоко", "банан", "киви", "арбуз"]
+for i in fruits:
+    len(i)
+    if len(i) > n:
+        n=len(i)
+
+
+for i, value in enumerate(fruits, 1):
+     print("{}. {}".format(i, value.rjust(n)))
 
 # Подсказка: воспользоваться методом .format()
 
