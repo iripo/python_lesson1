@@ -29,6 +29,34 @@ for i in fruits:
 for i, value in enumerate(fruits, 1):
      print("{}. {}".format(i, value.rjust(n)))
 
+#или
+
+n=0
+nomi=[]
+
+fruits=["яблоко", "банан", "киви", "арбуз"]
+
+for j in range(len(fruits)):
+    nomi.append(j+1)
+
+for i in fruits:
+    len(i)
+    if len(i) > n:
+        n=len(i)
+        
+for i in nomi:
+     print("{}. {}".format(i, fruits[i-1].rjust(n)))
+     
+#увлеклась...
+
+d = [(nomi[i],fruits[i]) for i in range(len(nomi))]
+
+len(d)
+for i in range(len(d)):
+     print("{}. {}".format(d[i][0], d[i][1].rjust(n)))
+
+        
+
 # Подсказка: воспользоваться методом .format()
 
 
