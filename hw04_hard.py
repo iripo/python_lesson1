@@ -48,7 +48,11 @@ pattern = '\d{5}'
 a=re.findall(pattern, number)
 a1=[list(x) for x in a]
 
-#to_continue.... привести к итеджеру перемножить np.prod
+a2=[]
+for innerList in a1:
+    a2.append(np.prod([int(x) for x in innerList]))
+
+indfn=(a2.index(max(a2))*5)
 
 # Задание-3 (Ферзи):
 # Известно, что на доске 8×8 можно расставить 8 ферзей так, чтобы они не били
