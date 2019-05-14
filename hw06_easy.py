@@ -22,7 +22,7 @@ class Triangle ():
         return (self.Pabc)
 
     def Sabc(self):
-        self.Sabc =  round(abs((self.b_x-self.a_x)*(self.c_y-self.a_y)-(self.c_x-self.a_x)*(self.b_y-self.a_y))/2,2)
+        self.Sabc =  round(abs((b_x-a_x)*(c_y-a_y)-(c_x-a_x)*(b_y-a_y))/2,2)
         return (self.Sabc)
 
 
@@ -46,6 +46,7 @@ print('Высота треугольника АВС (из точки В) рав�
 # проверка, является ли фигура равнобочной трапецией;
 # вычисления: длины сторон, периметр, площадь.
 
+
  
 class Trapeze:
     def __init__(self, a_x, a_y, b_x, b_y, c_x, c_y, d_x, d_y):
@@ -59,24 +60,24 @@ class Trapeze:
         self.d_y = d_y
         self.AB = math.sqrt(int(abs(((b_x - a_x)**2) + ((b_y - a_y)**2))))
         self.BC = math.sqrt(int(abs(((c_x - b_x)**2) + ((c_y - b_y)**2))))
-		self.CD = math.sqrt(int(abs(((d_x - c_x)**2) + ((d_y - c_y)**2))))
+        self.CD = math.sqrt(int(abs(((d_x - c_x)**2) + ((d_y - c_y)**2))))
         self.AD = math.sqrt(int(abs(((d_x - a_x)**2) + ((d_y - a_y)**2))))
-		self.AС = math.sqrt(int(abs(((с_x - a_x)**2) + ((с_y - a_y)**2))))
-		self.BD = math.sqrt(int(abs(((d_x - b_x)**2) + ((d_y - b_y)**2))))
+        self.AС = math.sqrt(int(abs(((с_x - a_x)**2) + ((с_y - a_y)**2))))
+        self.BD = math.sqrt(int(abs(((d_x - b_x)**2) + ((d_y - b_y)**2))))
 
     def RavineTrapeze(self):
         if self.AC == self.BD:
             return True
         return False
 
-	def Pabcd(self):
+    def Pabcd(self):
         self.Pabcd = round((self.AB+self.BC+self.CD+self.AD),2)
         return (self.Pabcd)
  
     def Sabcd(self):
         self.Sabc =  round(abs((b_x-a_x)*(c_y-a_y)-(c_x-a_x)*(b_y-a_y))/2,2)
-		self.Sacd =  round(abs((c_x-a_x)*(d_y-a_y)-(d_x-a_x)*(c_y-a_y))/2,2)
-		self.Sabcd = sum(self.Sabc + self.Sacd)
+        self.Sacd =  round(abs((c_x-a_x)*(d_y-a_y)-(d_x-a_x)*(c_y-a_y))/2,2)
+        self.Sabcd = sum(self.Sabc + self.Sacd)
         return (self.Sabcd)
  
 
@@ -87,5 +88,6 @@ print('Является ли трапеция равнобочной {}'.format(
 print('Длина сторон трапеции АВ = {}, BС = {}, СD = {}, AD = {}'.format(coordT.AB, coordT.BC,coordT.CD,coordT.AD))
 print('Периметр трапеции АВСD равен {}'.format(coordT.Pabcd()))
 print('Площадь трапеции АВСВ равна {}'.format(coordT.Sabcd()))
+
 
 
