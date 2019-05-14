@@ -74,7 +74,7 @@ class Trapeze:
     def Sabcd(self):
         self.Sabc = round((abs((b_x - a_x)*(c_y - a_y)-(c_x - a_x)*(b_y - a_y))/2),2)
         self.Sacd = round((abs((c_x - a_x)*(d_y - a_y)-(d_x - a_x)*(c_y - a_y))/2),2)
-        self.Sabcd = sum(self.Sabc + self.Sacd)
+        self.Sabcd = (self.Sabc + self.Sacd)
         return (self.Sabcd)
  
 
