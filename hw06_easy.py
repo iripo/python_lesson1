@@ -3,6 +3,7 @@
 #####Длины сторон |AB|=(xB−xA)2+(yB−yA)2−−−−−−−−−−−−−−−−−−−√,|AC|=(xC−xA)2+(yC−yA)2−−−−−−−−−−−−−−−−−−−√,|BC|=(xC−xB)2+(yC−yB)2−−−−−−−−−−−−−−−−−−−√.
 #####Площадь SABC=|(xB−xA)(yC−yA)−(xC−xA)(yB−yA)|2
 
+
 import math
 
 class Triangle ():
@@ -13,16 +14,16 @@ class Triangle ():
         self.b_y = b_y
         self.c_x = c_x
         self.c_y = c_y
-        self.AB = math.sqrt(int(abs(((b_x - a_x)**2) + ((b_y - a_y)**2))))
-        self.AC = math.sqrt(int(abs(((c_x - a_x)**2) + ((c_y - a_y)**2))))
-        self.BC = math.sqrt(int(abs(((c_x - b_x)**2) + ((c_y - b_y)**2))))
+        self.AB = round(math.sqrt(int(abs(((b_x - a_x)**2) + ((b_y - a_y)**2)))),2)
+        self.AC = round(math.sqrt(int(abs(((c_x - a_x)**2) + ((c_y - a_y)**2)))),2)
+        self.BC = round(math.sqrt(int(abs(((c_x - b_x)**2) + ((c_y - b_y)**2)))),2)
 
     def Pabc(self):
         self.Pabc = round((self.AB+self.AC+self.BC),2)
         return (self.Pabc)
 
     def Sabc(self):
-        self.Sabc =  round(abs((b_x-a_x)*(c_y-a_y)-(c_x-a_x)*(b_y-a_y))/2,2)
+        self.Sabc =  round(abs((self.b_x-self.a_x)*(self.c_y-self.a_y)-(self.c_x-self.a_x)*(self.b_y-self.a_y))/2,2)
         return (self.Sabc)
 
 
@@ -38,7 +39,6 @@ print('Длина сторон треугольника АВ = {}, AС = {}, BС
 print('Периметр треугольника АВС равен {}'.format(coord.Pabc()))
 print('Площадь треугольника АВС равна {}'.format(coord.Sabc()))
 print('Высота треугольника АВС (из точки В) равна {}'.format(coord.height()))
-
 
 
 # Задача-2: Написать Класс "Равнобочная трапеция", заданной координатами 4-х точек.
