@@ -22,12 +22,12 @@ class Triangle ():
         return (self.Pabc)
 
     def Sabc(self):
-        self.Sabc =  round(abs((b_x-a_x)*(c_y-a_y)-(c_x-a_x)*(b_y-a_y))/2,2)
+        self.Sabc =  round(abs((self.b_x-self.a_x)*(self.c_y-self.a_y)-(self.c_x-self.a_x)*(self.b_y-self.a_y))/2,2)
         return (self.Sabc)
 
 
     def height(self):
-        self.height = round(Sabc*2/ self.AC,2)
+        self.height = round(self.Sabc*2/ self.AC,2)
         return (self.height)
 
 
