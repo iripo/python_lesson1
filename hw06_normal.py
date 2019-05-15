@@ -1,13 +1,3 @@
-class Classroom:
-    def __init__(self, class_room):
-        self.class_room = {
-            'class_num': int(class_room.split()[0]),
-            'class_letter': class_room.split()[1]
-        }
- 
-    def get_name(self):
-        return str(self.class_room['class_num']) + ' ' + self.class_room['class_letter']
-
 class Person:
     def __init__(self, name, father_name, surname):
         self.name = name
@@ -22,11 +12,12 @@ class Person:
         return '{} {}.{}.'.format(self.surname.title(), self.name[0].upper(), self.father_name[0].upper())
 
 class Student(Person):
-    def __init__(self, name, father_name,  surname, class_room, father, mother):
+    def __init__(self, name, father_name,  surname, class_room, father, mother, class_subj):
         Person.__init__(self, name, father_name,  surname)
         self.class_room = class_room
         self.father = father
         self.mother = mother
+        self.subj = class_subj
  
     def get_class_room(self):
         return self.class_room
@@ -34,14 +25,22 @@ class Student(Person):
     def get_parents(self):
         return self.father.get_full_name(), self.mother.get_full_name()
 
+    def get_class_kid_list(self):
+        self.class_kid_list = [self.get_full_name(),self.class_room]
+		return self.class_kid_list		
+		
+    def get_class_subj_list(self):
+		self.class_subj_list = [self.class_room, self.class.subj]
+
 class Teacher(Person):
     def __init__(self, name, father_name, surname, classes, subject):
         Person.__init__(self, name, father_name, surname)
         self.classes = classes
         self.subject = subject
- 
-    def get_subject(self):
-        return self.subject
+
+	def get_teachers_list(self):
+        self.teachers_list = [self.get_full_name(), self.subj]
+		return self.subject
  
     def get_classes(self):
         return self.classes    
