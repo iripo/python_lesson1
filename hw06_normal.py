@@ -23,14 +23,15 @@ class Student(Person):
         return self.class_room
  
     def get_parents(self):
-        return self.father.get_full_name(), self.mother.get_full_name()
+        return self.father, self.mother
 
     def get_class_kid_list(self):
         self.class_kid_list = [self.get_full_name(),self.class_room]
-		return self.class_kid_list		
-		
+        return self.class_kid_list
+
     def get_class_subj_list(self):
-		self.class_subj_list = [self.class_room, self.class.subj]
+        self.class_subj_list = self.subj
+        return self.class_subj_list
 
 class Teacher(Person):
     def __init__(self, name, father_name, surname, classes, subject):
@@ -38,37 +39,48 @@ class Teacher(Person):
         self.classes = classes
         self.subject = subject
 
-	def get_teachers_list(self):
+    def get_teachers_list(self):
         self.teachers_list = [self.get_full_name(), self.subj]
-		return self.subject
+        return self.subject
  
     def get_classes(self):
         return self.classes    
     
         
 if __name__ == '__main__':  
-    class_room = ['5 А', '6 Б', '7 В']
-    parents = [Person('Валерий', 'Павлович', 'Чкалов'),
-               Person('Василиса', 'Петровна', 'Чкалова'),
-               Person('Николай', 'Францевич', 'Гастелло'),
-               Person('Нина', 'Федоровна', 'Гастелло'),
-               Person('Юрий', 'Алексеевич', 'Гагарин'),
-               Person('Юлия', 'Андреевна', 'Гагарина')]
-    students = [Student('Виктория', 'Валерьевна', 'Чкалова', class_room[0], parents[0], parents[1]),
-                Student('Никита', 'Николаевич', 'Гастелло',  class_room[1], parents[2], parents[3]),
-                Student('Юлий', 'Юрьевич', 'Гагарин',  class_room[2], parents[4], parents[5])]
-    teachers = [Teacher('Иван', 'Иванович', 'Иванов', [class_room[0], class_room[1]], 'Алгебра'),
-                Teacher('Петр', 'Петрович', 'Петров', [class_room[2], class_room[1]],'Физика'),
-                Teacher('Сидор', 'Сидорович', 'Сидоров', [class_room[0], class_room[2]], 'Химия')]
+    students = [Student('Виктория', 'Валерьевна', 'Чкалова', '4A', 'Чкалов Валерий Сергеевич', 'Чкалова Валерия Сергеевна',['Алгебра', 'Физика', 'Химия']),
+                Student('Алина', 'Ивановна', 'Иванова', '4A', 'Иванов Иван Валерьевич', 'Иванова Арина Сергеевна',['Алгебра', 'Физика', 'Химия']),
+                Student('Ален', 'Петрович', 'Иксанов', '7A', 'Иксанов Петр Валерьевич', 'Иксанова Роза Сергеевна',['Алгебра', 'Физика', 'Химия'])]
+    teachers = [Teacher('Иван', 'Иванович', 'Иванов', '4A', 'Алгебра'),
+                Teacher('Петр', 'Петрович', 'Петров',  '6A','Физика'),
+                Teacher('Сидор', 'Сидорович', 'Сидоров', '7A', 'Химия')]
 
+print('1. Получить полный список всех классов школы: ')
 st = set([val.get_class_room() for val in students])
 print(st)
 
-for cl_room in class_room:
-    st_list = [val.get_short_name() for val in students if val.get_class_room() == cl_room]
-    print(cl_room)
-    print(st_list)
-
-student = students[0]
-parents = student.get_parents()
-print(parents)
+print('2. Получить список всех учеников в указанном классе: ')
+class_id ='4A'
+st_list = []
+for _ in students:
+    if _.get_class_room() == class_id:
+        st_list.append([_.get_short_name()])
+print(st_list)
+print('3. Получить список всех предметов указанного ученика')
+st_name='Иванова А.И.'
+st_subj = []
+st_par = []
+for _ in students:
+    if _.get_short_name() == st_name:
+        st_subj =_.get_class_subj_list()
+        st_par=_.get_parents()
+print(st_subj)
+print('4. Узнать ФИО родителей указанного ученика')
+print(st_par)
+print('5. Получить список всех Учителей, преподающих в указанном классе')
+class_id ='4A'
+t_list = []
+for _ in teachers:
+     if _.get_classes() == class_id:
+        t_list.append([_.get_short_name()])
+print(t_list)
